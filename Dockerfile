@@ -10,9 +10,11 @@ RUN wget http://downloads.sourceforge.net/liblo/liblo-0.29.tar.gz && \
     cd .. && rm -R liblo*
 RUN pip install pyliblo
 
-# easy debug with vim
+# easy debug with vim and netcat
 RUN apt-get update && apt-get install -y \
-	  vim && \
+	  vim \
+    netcat \
+    && \
 	  rm -rf /var/lib/apt/lists/*
 RUN echo "syntax on" >> /etc/vim/vimrc.local && \
     echo "set bg=dark" >> /etc/vim/vimrc.local
